@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary Swaga Baby</title>
+    <style>
+        /* Background Gradient */
+        body {
+            background: linear-gradient(to right, #ff99cc, #ff66b3, #d6a6e6);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+            margin: 0;
+            height: 100vh;
+        }
+
+        /* Cursive Happy Anniversary Title */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            color: #e63946;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(255, 0, 102, 0.7), 0 0 15px #ff4d6d;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #e63946, 0 0 10px #ff4d6d; }
+            100% { text-shadow: 0 0 10px #e63946, 0 0 20px #ff4d6d; }
+        }
+
+        /* Smoothly Disappearing and Appearing Smaller Heart */
+        .smooth-heart {
+            position: absolute;
+            font-size: 2em;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ff4d6d;
+            animation: smoothHeartAnimation 4s ease-in-out infinite;
+        }
+
+        @keyframes smoothHeartAnimation {
+            0% { opacity: 0; transform: translateY(0) scale(1); }
+            50% { opacity: 1; transform: translateY(-20px) scale(1.2); }
+            100% { opacity: 0; transform: translateY(0) scale(1); }
+        }
+
+        /* Container for Messages */
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            overflow-y: auto;
+            max-height: 70vh;
+            margin-bottom: 20px;
+            border: 2px solid #ff66b3;
+        }
+
+        /* Message Display */
+        .message {
+            font-size: 1.5em;
+            color: #333;
+            padding: 20px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            background: rgba(255, 102, 204, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 102, 204, 0.5);
+            margin-bottom: 15px;
+            transform: translateY(20px);
+        }
+
+        .message:first-child {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Fancy Button Styling */
+        .button {
+            background-color: #ff66b3;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #d6336c;
+            transform: scale(1.05);
+            transition: 0.2s ease;
+        }
+
+        /* Floating Hearts from the sides */
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5em;
+            color: #ff4d6d;
+            opacity: 1;
+            animation: floatHeartFromSides 4s ease-in-out forwards;
+        }
+
+        @keyframes floatHeartFromSides {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            50% { opacity: 1; transform: translateY(-30px) scale(1.2); }
+            100% { opacity: 0; transform: translateY(-50px) scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Title Section -->
+    <h1>💖 Happy Anniversary Swaga Baby 💖</h1>
+
+    <!-- Smoothly Appearing and Disappearing Heart -->
+    <div class="smooth-heart">❤️</div>
+
+    <!-- Display 12 meaningful anniversary messages -->
+    <div class="container" id="message-container">
+        <p class="message">1. I loved you from the moment I got to know you, true you. 🌟</p>
+        <p class="message">2. Every day with you is a new adventure, and I wouldn't want it with anyone else. ✨</p>
+        <p class="message">3. You are my best friend and my greatest love, all in one. 💑</p>
+        <p class="message">4. I adore the way you make even the simplest moments feel so special. 💖</p>
+        <p class="message">5. My heart has always belonged to you, and it always will. ❤️</p>
+        <p class="message">6. I cherish the little things you do that make me feel so loved. 💞</p>
+        <p class="message">7. Our love feels like home, where I’m always at peace. 🏡</p>
+        <p class="message">8. With you, I've found my forever and I couldn’t ask for a better partner. 🌈</p>
+        <p class="message">9. You make me want to be a better person, and for that, I’m forever grateful. 🌸</p>
+        <p class="message">10. Through all the ups and downs, you are my constant, my everything. 🌷</p>
+        <p class="message">11. No matter where life takes us, I'll always walk beside you. 🌍</p>
+        <p class="message">12. You complete me in every way, and I’m thankful for every moment. 💕</p>
+
+        <button class="button" id="next-button">Next Reason</button>
+    </div>
+
+    <script>
+        let index = 0;
+        const messages = document.querySelectorAll('.message');
+        const container = document.getElementById("message-container");
+
+        // Event listener for "Next Reason" button
+        document.getElementById("next-button").addEventListener("click", showNextMessage);
+
+        function showNextMessage() {
+            if (index < messages.length - 1) {
+                index++;
+                messages[index].style.display = "block";
+                setTimeout(() => {
+                    messages[index].style.opacity = "1";
+                    messages[index].style.transform = "translateY(0)";
+                }, 50);
+                createHeart();
+                container.scrollTop = container.scrollHeight; 
+            } else {
+                alert("That's all for now! But I have a million more reasons. 😘");
+            }
+        }
+
+        // Create floating hearts from the sides when clicking "Next Reason"
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("floating-heart");
+
+            // Randomly choose left or right for the heart to appear
+            heart.style.left = Math.random() > 0.5 ? "10%" : "80%"; // Position left or right
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+
+            // Remove heart after animation ends
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+    </script>
+
+</body>
+</html>

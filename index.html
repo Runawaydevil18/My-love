@@ -156,7 +156,7 @@
     
     document.getElementById("next-button").addEventListener("click", showNextMessage);
     
-    function showNextMessage() {
+  function showNextMessage() {
   if (index < messages.length - 1) {
     index++;
     messages[index].style.display = "block";
@@ -171,8 +171,6 @@
     alert("That's all for now! But I have a million more reasons. 😘");
   }
 }
-
-    
     // Create floating hearts from the sides when clicking "Next Reason"
     function createFloatingHeart() {
       const heart = document.createElement("div");

@@ -17,8 +17,8 @@
       margin: 0;
       height: 100vh;
     }
-
-    /* Cursive and Stylish Title with Bounce and Glow */
+    
+    /* Stylish Title with Bounce and Glow (Cursive) */
     h1 {
       font-family: 'Dancing Script', cursive;
       font-size: 5em;
@@ -41,15 +41,16 @@
       50% { transform: translateY(-10px); }
     }
     
-    /* Smoothly Disappearing and Appearing Small Red Heart */
+    /* Smoothly Appearing/Disappearing Small Red Heart at the Top */
     .smooth-heart {
       position: absolute;
-      font-size: 2em;
+      font-size: 2em; /* smaller heart */
       top: 10%;
       left: 50%;
       transform: translateX(-50%);
       color: #ff4d6d;
       animation: smoothHeartAnimation 4s ease-in-out infinite;
+      z-index: 3;
     }
     
     @keyframes smoothHeartAnimation {
@@ -58,7 +59,7 @@
       100% { opacity: 0; transform: translateY(0) scale(1); }
     }
     
-    /* Container for Messages */
+    /* Container for Anniversary Messages */
     .container {
       max-width: 600px;
       margin: auto;
@@ -112,6 +113,24 @@
       background-color: #d6336c;
       transform: scale(1.05);
     }
+    
+    /* Floating Hearts that Pop Up from the Sides on "Next Reason" */
+    .floating-heart {
+      position: absolute;
+      font-size: 1.5em;
+      color: #ff4d6d;
+      opacity: 1;
+      /* This animation starts the heart slightly off-screen and brings it in */
+      animation: floatHeartFromSides 4s ease-in-out forwards;
+      z-index: 4;
+    }
+    
+    @keyframes floatHeartFromSides {
+      0% { opacity: 0; transform: translateX(0) translateY(0) scale(1); }
+      10% { opacity: 1; }
+      50% { transform: translateY(-30px) scale(1.2); }
+      100% { opacity: 0; transform: translateY(-50px) scale(1); }
+    }
   </style>
   <!-- Google Font for Dancing Script -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -120,7 +139,7 @@
   <!-- Title Section -->
   <h1>💖 Happy Anniversary Swaga Baby 💖</h1>
   
-  <!-- Smoothly Appearing and Disappearing Heart -->
+  <!-- Smoothly Appearing and Disappearing Heart at the Top -->
   <div class="smooth-heart">❤️</div>
   
   <!-- Container for Anniversary Messages -->
@@ -171,16 +190,16 @@
       }
     }
     
-    // Create floating hearts from the sides when clicking "Next Reason"
     function createFloatingHeart() {
       const heart = document.createElement("div");
       heart.innerHTML = "❤️";
       heart.classList.add("floating-heart");
-      // Randomly position the heart on left or right
-      heart.style.left = Math.random() > 0.5 ? "10%" : "80%";
+      // Position the heart off-screen initially
+      heart.style.left = Math.random() > 0.5 ? "-20%" : "120%";
+      // Then animate into view (the animation in CSS handles the rest)
       heart.style.animationDuration = Math.random() * 2 + 3 + "s";
       document.body.appendChild(heart);
-    
+      
       // Remove heart after animation ends
       setTimeout(() => { heart.remove(); }, 4000);
     }

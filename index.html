@@ -157,19 +157,21 @@
     document.getElementById("next-button").addEventListener("click", showNextMessage);
     
     function showNextMessage() {
-      if (index < messages.length - 1) {
-        index++;
-        messages[index].style.display = "block";
-        setTimeout(() => {
-          messages[index].style.opacity = "1";
-          messages[index].style.transform = "translateY(0)";
-        }, 50);
-        createFloatingHeart();
-        container.scrollTop = container.scrollHeight;
-      } else {
-        alert("That's all for now! But I have a million more reasons. 😘");
-      }
-    }
+  if (index < messages.length - 1) {
+    index++;
+    messages[index].style.display = "block";
+    setTimeout(() => {
+      messages[index].style.opacity = "1";
+      messages[index].style.transform = "translateY(0)";
+    }, 50);
+    // Add the function call here:
+    createFloatingHeart(); 
+    container.scrollTop = container.scrollHeight; 
+  } else {
+    alert("That's all for now! But I have a million more reasons. 😘");
+  }
+}
+
     
     // Create floating hearts from the sides when clicking "Next Reason"
     function createFloatingHeart() {

@@ -17,7 +17,7 @@
       margin: 0;
       height: 100vh;
     }
-    
+
     /* Cursive and Stylish Title with Bounce and Glow */
     h1 {
       font-family: 'Dancing Script', cursive;
@@ -120,12 +120,12 @@
   <!-- Title Section -->
   <h1>💖 Happy Anniversary Swaga Baby 💖</h1>
   
-  <!-- Smooth Heart Animation -->
+  <!-- Smoothly Appearing and Disappearing Heart -->
   <div class="smooth-heart">❤️</div>
   
   <!-- Container for Anniversary Messages -->
   <div class="container" id="message-container">
-    <p class="message">1. I loved you from the moment you showed me the true parts of yourself,you hid from the world 🌟</p>
+    <p class="message">1. I loved you from the moment I got to know you, true you. 🌟</p>
     <p class="message">2. Every day with you is a new adventure, and I wouldn't want it with anyone else. ✨</p>
     <p class="message">3. You are my best friend and my greatest love, all in one. 💑</p>
     <p class="message">4. I adore the way you make even the simplest moments feel so special. 💖</p>
@@ -141,10 +141,10 @@
     <p class="message">14. I love how we can talk for hours and never run out of things to say. 🗣️💬</p>
     <p class="message">15. You understand me in ways no one else ever has. 💞</p>
     <p class="message">16. Your kindness and warmth make this world a better place. 🌍❤️</p>
-    <p class="message">17. Every hug from you feels like home. Making me miss your warmth when you aren't around 🤗</p>
-    <p class="message">18. You're presence gives me everything and anything i'd ever want . ✨</p>
-    <p class="message">19. Your laugh is my favorite melody. 🎶</p>
-    <p class="message">20. I promise to love you more every single day. For the rest of our lives 💖</p>
+    <p class="message">17. Every hug from you feels like home. 🤗</p>
+    <p class="message">18. You make even the simplest moments magical. ✨</p>
+    <p class="message">19. Your laugh is my favorite sound. 🎶</p>
+    <p class="message">20. I promise to love you more every single day. 💖</p>
     
     <button class="button" id="next-button">Next Reason</button>
   </div>
@@ -156,27 +156,27 @@
     
     document.getElementById("next-button").addEventListener("click", showNextMessage);
     
-  function showNextMessage() {
-  if (index < messages.length - 1) {
-    index++;
-    messages[index].style.display = "block";
-    setTimeout(() => {
-      messages[index].style.opacity = "1";
-      messages[index].style.transform = "translateY(0)";
-    }, 50);
-    // Add the function call here:
-    createFloatingHeart(); 
-    container.scrollTop = container.scrollHeight; 
-  } else {
-    alert("That's all for now! But I have a million more reasons. 😘");
-  }
-}
+    function showNextMessage() {
+      if (index < messages.length - 1) {
+        index++;
+        messages[index].style.display = "block";
+        setTimeout(() => {
+          messages[index].style.opacity = "1";
+          messages[index].style.transform = "translateY(0)";
+        }, 50);
+        createFloatingHeart();
+        container.scrollTop = container.scrollHeight;
+      } else {
+        alert("That's all for now! But I have a million more reasons. 😘");
+      }
+    }
+    
     // Create floating hearts from the sides when clicking "Next Reason"
     function createFloatingHeart() {
       const heart = document.createElement("div");
       heart.innerHTML = "❤️";
       heart.classList.add("floating-heart");
-      // Randomly position the heart on the left or right side
+      // Randomly position the heart on left or right
       heart.style.left = Math.random() > 0.5 ? "10%" : "80%";
       heart.style.animationDuration = Math.random() * 2 + 3 + "s";
       document.body.appendChild(heart);

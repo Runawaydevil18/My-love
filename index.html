@@ -18,7 +18,7 @@
       height: 100vh;
     }
     
-    /* Stylish Title with Bounce and Glow (Cursive) */
+    /* Stylish Title with Bounce and Glow */
     h1 {
       font-family: 'Dancing Script', cursive;
       font-size: 5em;
@@ -44,7 +44,7 @@
     /* Smoothly Appearing/Disappearing Small Red Heart at the Top */
     .smooth-heart {
       position: absolute;
-      font-size: 2em; /* smaller heart */
+      font-size: 2em;
       top: 10%;
       left: 50%;
       transform: translateX(-50%);
@@ -114,19 +114,18 @@
       transform: scale(1.05);
     }
     
-    /* Floating Hearts that Pop Up from the Sides on "Next Reason" */
+    /* Floating Hearts from the Sides */
     .floating-heart {
       position: absolute;
       font-size: 1.5em;
       color: #ff4d6d;
       opacity: 1;
-      /* This animation starts the heart slightly off-screen and brings it in */
       animation: floatHeartFromSides 4s ease-in-out forwards;
       z-index: 4;
     }
     
     @keyframes floatHeartFromSides {
-      0% { opacity: 0; transform: translateX(0) translateY(0) scale(1); }
+      0% { opacity: 0; transform: translateY(0) scale(1); }
       10% { opacity: 1; }
       50% { transform: translateY(-30px) scale(1.2); }
       100% { opacity: 0; transform: translateY(-50px) scale(1); }
@@ -139,7 +138,7 @@
   <!-- Title Section -->
   <h1>💖 Happy Anniversary Swaga Baby 💖</h1>
   
-  <!-- Smoothly Appearing and Disappearing Heart at the Top -->
+  <!-- Smoothly Appearing/Disappearing Heart -->
   <div class="smooth-heart">❤️</div>
   
   <!-- Container for Anniversary Messages -->
@@ -194,13 +193,11 @@
       const heart = document.createElement("div");
       heart.innerHTML = "❤️";
       heart.classList.add("floating-heart");
-      // Position the heart off-screen initially
-      heart.style.left = Math.random() > 0.5 ? "-20%" : "120%";
-      // Then animate into view (the animation in CSS handles the rest)
+      // Randomize the heart's horizontal position between 10% and 90%
+      heart.style.left = Math.random() * 80 + 10 + "%";
       heart.style.animationDuration = Math.random() * 2 + 3 + "s";
       document.body.appendChild(heart);
       
-      // Remove heart after animation ends
       setTimeout(() => { heart.remove(); }, 4000);
     }
   </script>
